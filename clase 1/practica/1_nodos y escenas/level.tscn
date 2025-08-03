@@ -1,9 +1,10 @@
-[gd_scene load_steps=5 format=3 uid="uid://bq1teupgmew1l"]
+[gd_scene load_steps=6 format=3 uid="uid://bq1teupgmew1l"]
 
 [ext_resource type="Script" uid="uid://cg74h8gvx8cmf" path="res://level.gd" id="1_0b4ue"]
 [ext_resource type="PackedScene" uid="uid://bw68wsps3t1ph" path="res://player/player.tscn" id="1_u52ul"]
 [ext_resource type="PackedScene" uid="uid://cf14nekiyv4e5" path="res://floor/floor.tscn" id="2_vonw3"]
 [ext_resource type="Texture2D" uid="uid://27j8iftxvygx" path="res://sky.jpg" id="3_oi3di"]
+[ext_resource type="Texture2D" uid="uid://bmjllu1pjejjw" path="res://coin/coin.png" id="5_f2txt"]
 
 [node name="Level" type="Node2D"]
 script = ExtResource("1_0b4ue")
@@ -55,3 +56,36 @@ metadata/_edit_lock_ = true
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2(0, -851)
 zoom = Vector2(0.275, 0.275)
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer"]
+offset_right = 87.0
+offset_bottom = 45.0
+theme_override_constants/margin_left = 64
+theme_override_constants/margin_top = 32
+
+[node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer/MarginContainer"]
+layout_mode = 2
+theme_override_constants/separation = 17
+
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer/MarginContainer/HBoxContainer"]
+layout_mode = 2
+texture = ExtResource("5_f2txt")
+expand_mode = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer/MarginContainer/HBoxContainer"]
+layout_mode = 2
+
+[node name="Label2" type="Label" parent="CanvasLayer/MarginContainer/HBoxContainer/HBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 32
+text = "x"
+
+[node name="Score" type="Label" parent="CanvasLayer/MarginContainer/HBoxContainer/HBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_font_sizes/font_size = 32
+text = "0"
+
+[node name="Coins" type="Node2D" parent="."]
