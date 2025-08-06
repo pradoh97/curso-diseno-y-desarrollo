@@ -4,13 +4,12 @@
 [ext_resource type="Texture2D" uid="uid://obfuvbutsh18" path="res://player/player.png" id="2_4ntmi"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_4ntmi"]
-size = Vector2(256, 256)
+size = Vector2(130, 126)
 
 [node name="Player" type="CharacterBody2D"]
 script = ExtResource("1_xhfnw")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-scale = Vector2(2, 2)
 texture = ExtResource("2_4ntmi")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
