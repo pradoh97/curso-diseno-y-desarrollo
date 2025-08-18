@@ -1,10 +1,11 @@
-[gd_scene load_steps=6 format=3 uid="uid://bq1teupgmew1l"]
+[gd_scene load_steps=7 format=3 uid="uid://bq1teupgmew1l"]
 
 [ext_resource type="Script" uid="uid://cg74h8gvx8cmf" path="res://level.gd" id="1_0b4ue"]
 [ext_resource type="PackedScene" uid="uid://bw68wsps3t1ph" path="res://player/player.tscn" id="1_u52ul"]
 [ext_resource type="PackedScene" uid="uid://cf14nekiyv4e5" path="res://floor/floor.tscn" id="2_vonw3"]
 [ext_resource type="Texture2D" uid="uid://27j8iftxvygx" path="res://sky.jpg" id="3_oi3di"]
 [ext_resource type="Texture2D" uid="uid://bmjllu1pjejjw" path="res://coin/coin.png" id="5_f2txt"]
+[ext_resource type="PackedScene" uid="uid://bgr1om7dvwiu7" path="res://coin/coin.tscn" id="6_1ainy"]
 
 [node name="Level" type="Node2D"]
 script = ExtResource("1_0b4ue")
@@ -17,6 +18,9 @@ texture = ExtResource("3_oi3di")
 
 [node name="Player" parent="." instance=ExtResource("1_u52ul")]
 position = Vector2(-667, 36)
+speed = 800.0
+jump_velocity = 1500.0
+gravity = 1960.0
 
 [node name="Platforms" type="Node2D" parent="."]
 
@@ -89,3 +93,12 @@ theme_override_font_sizes/font_size = 32
 text = "0"
 
 [node name="Coins" type="Node2D" parent="."]
+
+[node name="Coin" parent="Coins" instance=ExtResource("6_1ainy")]
+position = Vector2(-672, -768)
+
+[node name="Coin3" parent="Coins" instance=ExtResource("6_1ainy")]
+position = Vector2(672, -1184)
+
+[node name="Coin2" parent="Coins" instance=ExtResource("6_1ainy")]
+position = Vector2(672, -448)
