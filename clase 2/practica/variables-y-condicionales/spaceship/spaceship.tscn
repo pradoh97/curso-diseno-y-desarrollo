@@ -1,21 +1,89 @@
-[gd_scene load_steps=2 format=3 uid="uid://bdqkphnfj1h2k"]
+[gd_scene load_steps=5 format=3 uid="uid://bdqkphnfj1h2k"]
 
 [ext_resource type="Script" uid="uid://cfimpnqq3eiko" path="res://spaceship/spaceship.gd" id="1_b0703"]
+
+[sub_resource type="Animation" id="Animation_b0703"]
+resource_name = "die"
+step = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ShipBody:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 1),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(0.641934, 0.641934, 0.641934, 1), Color(1, 1, 1, 1), Color(0.641934, 0.641934, 0.641934, 1), Color(1, 1, 1, 1), Color(0.641934, 0.641934, 0.641934, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("CollisionPolygon2D:disabled")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+
+[sub_resource type="Animation" id="Animation_t177j"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ShipBody:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("CollisionPolygon2D:disabled")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_t177j"]
+_data = {
+&"RESET": SubResource("Animation_t177j"),
+&"die": SubResource("Animation_b0703")
+}
 
 [node name="Spaceship" type="CharacterBody2D"]
 rotation = -3.14159
 collision_mask = 2
 script = ExtResource("1_b0703")
 
-[node name="Line2D" type="Line2D" parent="."]
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+polygon = PackedVector2Array(-8, -5, 34.0003, 74.9998, 76, -5)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_t177j")
+}
+
+[node name="ShipBody" type="Node2D" parent="."]
+
+[node name="Line2D" type="Line2D" parent="ShipBody"]
 points = PackedVector2Array(34, 65, 68, 0, 0, 0)
 closed = true
 default_color = Color(0, 0.597347, 0.597346, 1)
 sharp_limit = 4.0
 
-[node name="Polygon2D" type="Polygon2D" parent="."]
+[node name="Polygon2D" type="Polygon2D" parent="ShipBody"]
 color = Color(2.26215e-06, 0.486961, 0.486961, 1)
 polygon = PackedVector2Array(34.0003, 56.9998, 62, 2.99972, 5.00001, 2.99998)
-
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
-polygon = PackedVector2Array(-8, -5, 34.0003, 74.9998, 76, -5)
