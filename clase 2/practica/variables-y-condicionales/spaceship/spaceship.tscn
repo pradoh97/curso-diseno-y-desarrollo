@@ -1,0 +1,21 @@
+[gd_scene load_steps=2 format=3 uid="uid://bdqkphnfj1h2k"]
+
+[ext_resource type="Script" uid="uid://cfimpnqq3eiko" path="res://spaceship/spaceship.gd" id="1_b0703"]
+
+[node name="Spaceship" type="CharacterBody2D"]
+rotation = -3.14159
+collision_mask = 2
+script = ExtResource("1_b0703")
+
+[node name="Line2D" type="Line2D" parent="."]
+points = PackedVector2Array(34, 65, 68, 0, 0, 0)
+closed = true
+default_color = Color(0, 0.597347, 0.597346, 1)
+sharp_limit = 4.0
+
+[node name="Polygon2D" type="Polygon2D" parent="."]
+color = Color(2.26215e-06, 0.486961, 0.486961, 1)
+polygon = PackedVector2Array(34.0003, 56.9998, 62, 2.99972, 5.00001, 2.99998)
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+polygon = PackedVector2Array(-8, -5, 34.0003, 74.9998, 76, -5)
