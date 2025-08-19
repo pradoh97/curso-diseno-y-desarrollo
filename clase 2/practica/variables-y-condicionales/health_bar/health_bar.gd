@@ -1,13 +1,18 @@
 extends PanelContainer
 
-var total_width
+var max_health
+var health_factor = 5
 
 func _ready():
-	total_width = size.x
-	$CurrentHealth.texture.width = total_width
+	max_health = size.x
+	$CurrentHealth.texture.width = max_health
 
 func decrease():
-	$CurrentHealth.texture.width = clamp($CurrentHealth.texture.width - total_width/10, 1, INF)
+	var new_health = max_health/health_factor
+	$CurrentHealth.texture.width = clamp($CurrentHealth.texture.width - new_health, 1, INF)
+	if $CurrentHealth.texture.width < 10:
+		get_tree().quit(0)
 
 func increase():
-	$CurrentHealth.texture.width = clamp($CurrentHealth.texture.width + total_width/10, 1, INF)
+	var new_health = max_health/health_factor
+	$CurrentHealth.texture.width = clamp($CurrentHealth.texture.width + new_health, 1, INF)
