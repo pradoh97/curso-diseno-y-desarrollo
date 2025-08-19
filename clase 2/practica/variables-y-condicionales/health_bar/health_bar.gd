@@ -14,7 +14,7 @@ func update(new_health : float):
 	var current_health_percent = new_health/100.0
 	
 	#Hacer cambios a partir de acá.
-	$CurrentHealth.texture.width = clamp(max_health*current_health_percent, 1, max_health)
+	$CurrentHealth.texture.width = clamp(max_health*current_health_percent, 1, INF)
 		
 	if new_health < critical_health:
 		$CurrentHealth.texture.gradient.colors[0] = Color("#f60028")
