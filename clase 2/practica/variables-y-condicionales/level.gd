@@ -20,7 +20,6 @@ func spawn_flying_object(flying_object_scene : PackedScene):
 	add_child(flying_object)
 	
 	flying_object.global_position = $SpawnPoints.get_children().pick_random().global_position
-	flying_object.collided.connect(flying_object.queue_free)
 
 func _on_meteor_timer_timeout() -> void:
 	$MeteorTimer.wait_time = randf_range(0.5, 1.2)
