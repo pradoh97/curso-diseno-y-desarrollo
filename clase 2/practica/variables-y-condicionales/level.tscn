@@ -37,6 +37,7 @@ fill_to = Vector2(0.035, 0.41)
 
 [node name="Level" type="Node2D"]
 script = ExtResource("1_oi3di")
+max_meteors_to_spawn = 5
 
 [node name="Camera2D" type="Camera2D" parent="."]
 
