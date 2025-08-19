@@ -1,33 +1,21 @@
-extends CharacterBody2D
+extends SpaceshipWrapper
 
 class_name Spaceship
 
-const SPEED = 800.0
+#Hacer cambios a partir de acá.
+@export var heal_damage_factor = 20
 var health = 100.0
-var health_bar : HealthBar
-
-signal killed
-
-func _physics_process(_delta: float) -> void:
-	var direction := Input.get_axis("ui_left", "ui_right")
-	if direction:
-		velocity.x = direction * SPEED
-	else:
-		velocity.x = move_toward(velocity.x, 0, SPEED)
-
-	move_and_slide()
 
 func collide_flying_object(flying_object : FlyingObject):
 	if flying_object.deals_damage:
-		health = health - 20
+		health = health - heal_damage_factor
 	else:
-		health = health + 20
-	health_bar.update(health)
-	if health <= 0:
-		kill_player()
+		health = health + heal_damage_factor
+		if health > 100:
+			health = 100
 	
-func kill_player():
-	killed.emit()
-	set_physics_process(false)
-	$AnimationPlayer.play("die")
-	$AnimationPlayer.animation_finished.connect(get_tree().quit)
+	health_bar.update(health)
+	
+	if health <= 0:
+		$CollisionPolygon2D.set_deferred("disabled", true)
+		kill_player()
