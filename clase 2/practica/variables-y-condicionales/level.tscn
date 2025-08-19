@@ -1,15 +1,8 @@
-[gd_scene load_steps=10 format=3 uid="uid://dv8rvbbxfp0oj"]
+[gd_scene load_steps=11 format=3 uid="uid://dv8rvbbxfp0oj"]
 
 [ext_resource type="Script" uid="uid://cmxm8mpe0hcap" path="res://level.gd" id="1_oi3di"]
 [ext_resource type="PackedScene" uid="uid://bdqkphnfj1h2k" path="res://spaceship/spaceship.tscn" id="1_u52ul"]
 [ext_resource type="PackedScene" uid="uid://yfp2cplancv8" path="res://health_bar/health_bar.tscn" id="1_vonw3"]
-
-[sub_resource type="Gradient" id="Gradient_u52ul"]
-offsets = PackedFloat32Array(0)
-colors = PackedColorArray(0, 0, 0, 1)
-
-[sub_resource type="GradientTexture1D" id="GradientTexture1D_vonw3"]
-gradient = SubResource("Gradient_u52ul")
 
 [sub_resource type="Gradient" id="Gradient_vonw3"]
 interpolation_mode = 1
@@ -35,26 +28,21 @@ fill = 1
 fill_from = Vector2(0.5, 0.5)
 fill_to = Vector2(0.035, 0.41)
 
+[sub_resource type="Gradient" id="Gradient_oi3di"]
+offsets = PackedFloat32Array(0)
+colors = PackedColorArray(0, 0, 0, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_vonw3"]
+gradient = SubResource("Gradient_oi3di")
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_oi3di"]
+size = Vector2(25, 658)
+
 [node name="Level" type="Node2D"]
 script = ExtResource("1_oi3di")
 max_meteors_to_spawn = 5
 
 [node name="Camera2D" type="Camera2D" parent="."]
-
-[node name="UI" type="CanvasLayer" parent="."]
-layer = -1
-
-[node name="TextureRect" type="TextureRect" parent="UI"]
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_right = 256.0
-offset_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-texture = SubResource("GradientTexture1D_vonw3")
-
-[node name="HealthBar" parent="UI" instance=ExtResource("1_vonw3")]
 
 [node name="Stars" type="Node2D" parent="."]
 modulate = Color(0.813258, 0.813258, 0.813257, 1)
@@ -65,6 +53,7 @@ emitting = false
 amount = 32
 texture = SubResource("GradientTexture2D_oi3di")
 lifetime = 4.0
+preprocess = 3.0
 emission_shape = 3
 emission_rect_extents = Vector2(620, 1)
 direction = Vector2(0, 1)
@@ -79,6 +68,7 @@ emitting = false
 amount = 32
 texture = SubResource("GradientTexture2D_u52ul")
 lifetime = 3.0
+preprocess = 3.0
 emission_shape = 3
 emission_rect_extents = Vector2(620, 1)
 direction = Vector2(0, 1)
@@ -89,6 +79,7 @@ initial_velocity_max = 500.0
 
 [node name="Spaceship" parent="." instance=ExtResource("1_u52ul")]
 position = Vector2(34, 287)
+collision_mask = 6
 
 [node name="MeteorTimer" type="Timer" parent="."]
 autostart = true
@@ -113,7 +104,34 @@ position = Vector2(797, 0)
 position = Vector2(1087, 0)
 
 [node name="Marker2D5" type="Marker2D" parent="SpawnPoints"]
-position = Vector2(1325, 0)
+position = Vector2(1241, 0)
+
+[node name="UI" type="CanvasLayer" parent="."]
+layer = -1
+
+[node name="TextureRect" type="TextureRect" parent="UI"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = 256.0
+offset_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = SubResource("GradientTexture1D_vonw3")
+
+[node name="HealthBar" parent="UI" instance=ExtResource("1_vonw3")]
+
+[node name="LevelBorders" type="StaticBody2D" parent="."]
+position = Vector2(-580, -311)
+collision_layer = 4
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="LevelBorders"]
+position = Vector2(-8, 319)
+shape = SubResource("RectangleShape2D_oi3di")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="LevelBorders"]
+position = Vector2(1172, 311)
+shape = SubResource("RectangleShape2D_oi3di")
 
 [connection signal="timeout" from="MeteorTimer" to="." method="_on_meteor_timer_timeout"]
 [connection signal="timeout" from="HealthPackTimer" to="." method="_on_health_pack_timer_timeout"]
