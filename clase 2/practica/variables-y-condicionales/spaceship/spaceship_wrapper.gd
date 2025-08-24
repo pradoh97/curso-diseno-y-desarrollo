@@ -17,6 +17,7 @@ func _physics_process(_delta: float) -> void:
 	move_and_slide()
 	
 func kill_player():
+	$CollisionPolygon2D.set_deferred("disabled", true)
 	killed.emit()
 	set_physics_process(false)
 	$AnimationPlayer.play("die")
