@@ -1,0 +1,13 @@
+[gd_scene load_steps=2 format=3 uid="uid://c42mk8mxatotv"]
+
+[ext_resource type="Script" uid="uid://bfrac0f2r8xf8" path="res://characters/character.gd" id="1_4b6xi"]
+
+[node name="Triangle" type="StaticBody2D"]
+input_pickable = true
+script = ExtResource("1_4b6xi")
+
+[node name="Polygon2D" type="Polygon2D" parent="."]
+polygon = PackedVector2Array(0, 0, 36, 0, 17.9769, 36)
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+polygon = PackedVector2Array(0, 0, 18, 36, 36, 0)

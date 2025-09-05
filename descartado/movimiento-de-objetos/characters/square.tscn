@@ -1,0 +1,17 @@
+[gd_scene load_steps=3 format=3 uid="uid://ck1pfbaq8fql7"]
+
+[ext_resource type="Script" uid="uid://bfrac0f2r8xf8" path="res://characters/character.gd" id="1_kfbid"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_kfbid"]
+size = Vector2(36, 36)
+
+[node name="Square" type="StaticBody2D"]
+input_pickable = true
+script = ExtResource("1_kfbid")
+
+[node name="Polygon2D" type="Polygon2D" parent="."]
+polygon = PackedVector2Array(0, 0, 36, 0, 36, 36, 0, 36)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(18, 18)
+shape = SubResource("RectangleShape2D_kfbid")
