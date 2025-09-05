@@ -1,0 +1,7 @@
+res://ship.tscn
+res://ship.gd
+res://level.tscn
+res://ship_wrapper.gd
+res://ship/ship.tscn
+res://ship/ship.gd
+res://ship/ship_wrapper.gd

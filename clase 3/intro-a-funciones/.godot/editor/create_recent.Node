@@ -1,0 +1,6 @@
+Sprite2D
+Camera2D
+CollisionPolygon2D
+Polygon2D
+CharacterBody2D
+StaticBody2D
