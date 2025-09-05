@@ -1,0 +1,103 @@
+[gd_scene load_steps=8 format=3 uid="uid://b3a1i6cdjqwfw"]
+
+[ext_resource type="FontFile" uid="uid://bqslqee1vgfju" path="res://ubicacion/NotoColorEmoji-Regular.ttf" id="1_6ykr2"]
+[ext_resource type="Script" uid="uid://dunhbth4it2tq" path="res://ubicacion/ubicacion.gd" id="1_nwbpb"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_6ykr2"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_wi72w"]
+bg_color = Color(0.0531403, 0.464545, 0.418947, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0.0719781, 0.551743, 0.505375, 1)
+border_blend = true
+corner_radius_top_left = 4
+corner_radius_top_right = 4
+corner_radius_bottom_right = 4
+corner_radius_bottom_left = 4
+expand_margin_left = 4.0
+expand_margin_top = 2.0
+expand_margin_right = 4.0
+expand_margin_bottom = 2.0
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_6ykr2"]
+bg_color = Color(0.0787725, 0.615667, 0.556664, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0.0903147, 0.698271, 0.63169, 1)
+border_blend = true
+corner_radius_top_left = 4
+corner_radius_top_right = 4
+corner_radius_bottom_right = 4
+corner_radius_bottom_left = 4
+expand_margin_left = 4.0
+expand_margin_top = 2.0
+expand_margin_right = 4.0
+expand_margin_bottom = 2.0
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_t1xmo"]
+bg_color = Color(0.0350033, 0.370224, 0.332939, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0.0513958, 0.451246, 0.409036, 1)
+border_blend = true
+corner_radius_top_left = 4
+corner_radius_top_right = 4
+corner_radius_bottom_right = 4
+corner_radius_bottom_left = 4
+expand_margin_left = 4.0
+expand_margin_top = 2.0
+expand_margin_right = 4.0
+expand_margin_bottom = 2.0
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_nwbpb"]
+bg_color = Color(0.0531403, 0.464545, 0.418947, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0.0719781, 0.551743, 0.505375, 1)
+border_blend = true
+corner_radius_top_left = 4
+corner_radius_top_right = 4
+corner_radius_bottom_right = 4
+corner_radius_bottom_left = 4
+expand_margin_left = 4.0
+expand_margin_top = 2.0
+expand_margin_right = 4.0
+expand_margin_bottom = 2.0
+
+[node name="Ubicacion" type="HBoxContainer"]
+size_flags_horizontal = 3
+theme_override_constants/separation = 0
+alignment = 1
+script = ExtResource("1_nwbpb")
+
+[node name="Icono" type="Label" parent="."]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("1_6ykr2")
+text = "📍"
+
+[node name="Nombre" type="Label" parent="."]
+layout_mode = 2
+text = "Ciudad gótica"
+
+[node name="VSeparator" type="VSeparator" parent="."]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/separation = 24
+theme_override_styles/separator = SubResource("StyleBoxEmpty_6ykr2")
+
+[node name="Button" type="Button" parent="."]
+layout_mode = 2
+theme_override_styles/hover_pressed = SubResource("StyleBoxFlat_wi72w")
+theme_override_styles/hover = SubResource("StyleBoxFlat_6ykr2")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_t1xmo")
+theme_override_styles/normal = SubResource("StyleBoxFlat_nwbpb")
+text = "Viajar"
