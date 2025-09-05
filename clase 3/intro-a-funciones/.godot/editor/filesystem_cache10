@@ -1,8 +1,0 @@
-ea4bc82a6ad023ab7ee23ee620429895
-::res://::1757113521
-icon.svg::CompressedTexture2D/CompressedTexture2D::6139100366472714125::1757110337::1757110341::1::::<><><>0<>0<>65b3335e41dc3f9545d649e1f3ce8d9f<>res://.godot/imported/icon.svg-218a8f2b3041327d8a5756f3a245f83b.ctex::
-level.tscn::PackedScene::8224184665077958226::1757113577::0::1::::<><><>0<>0<><>::uid://cuvhtlkm0hvy4::::res://ship.tscn<>uid://ctp3c6sfhv8j6::::res://icon.svg
-ship.gd::GDScript::5863018431706674517::1757113567::0::1::::<>ShipWrapper<><>0<>0<><>::
-ship.tscn::PackedScene::6220429715799492841::1757113577::0::1::::<><><>0<>0<><>::uid://cpsdb64inq87b::::res://ship.gd
-ship_wrapper.gd::GDScript::5730642023456469961::1757113570::0::1::::ShipWrapper<>CharacterBody2D<><>0<>0<><>::
-::res://ship/::0
