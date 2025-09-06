@@ -1,4 +1,4 @@
-[gd_scene load_steps=106 format=3 uid="uid://cuvhtlkm0hvy4"]
+[gd_scene load_steps=107 format=3 uid="uid://cuvhtlkm0hvy4"]
 
 [ext_resource type="Script" uid="uid://cpsdb64inq87b" path="res://ship/ship.gd" id="1_l3rv8"]
 [ext_resource type="Texture2D" uid="uid://d28cj1mlc3txh" path="res://explosions/GroundExploded0001.png" id="2_p080f"]
@@ -101,6 +101,7 @@
 [ext_resource type="Texture2D" uid="uid://os057j4yyu6y" path="res://explosions/GroundExploded0098.png" id="99_ufwbd"]
 [ext_resource type="Texture2D" uid="uid://copnr47tltnen" path="res://explosions/GroundExploded0099.png" id="100_brdfc"]
 [ext_resource type="Texture2D" uid="uid://dc0i6gqfp77x8" path="res://explosions/GroundExploded0100.png" id="101_fpjxy"]
+[ext_resource type="PackedScene" uid="uid://u8vb12ylrt4e" path="res://props/trail.tscn" id="102_mufvt"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_70tv7"]
 animations = [{
@@ -410,6 +411,33 @@ animations = [{
 "speed": 60.0
 }]
 
+[sub_resource type="Animation" id="Animation_mufvt"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Polygon2D:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("AnimatedSprite2D:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+
 [sub_resource type="Animation" id="Animation_p080f"]
 resource_name = "explode"
 length = 2.0
@@ -453,33 +481,6 @@ tracks/2/keys = {
 "values": [true]
 }
 
-[sub_resource type="Animation" id="Animation_mufvt"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Polygon2D:modulate")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Color(1, 1, 1, 1)]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("AnimatedSprite2D:visible")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [false]
-}
-
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_mufvt"]
 _data = {
 &"RESET": SubResource("Animation_mufvt"),
@@ -509,3 +510,6 @@ animation = &"explosion"
 libraries = {
 &"": SubResource("AnimationLibrary_mufvt")
 }
+
+[node name="Trail" parent="." instance=ExtResource("102_mufvt")]
+visible = false

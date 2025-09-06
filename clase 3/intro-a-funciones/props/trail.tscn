@@ -1,0 +1,18 @@
+[gd_scene load_steps=3 format=3 uid="uid://u8vb12ylrt4e"]
+
+[ext_resource type="Script" uid="uid://8x1h3ey7xtdq" path="res://props/trail.gd" id="1_4y11n"]
+
+[sub_resource type="Gradient" id="Gradient_bf0dt"]
+colors = PackedColorArray(0.402556, 0.95657, 0.941571, 1, 0.14902, 0.72549, 0.713726, 1)
+
+[node name="Trail" type="Line2D"]
+top_level = true
+z_index = -5
+points = PackedVector2Array(87, 108, 227.365, 120.58, 299, 127)
+default_color = Color(0.150119, 0.730917, 0.719569, 1)
+gradient = SubResource("Gradient_bf0dt")
+joint_mode = 2
+begin_cap_mode = 2
+end_cap_mode = 2
+antialiased = true
+script = ExtResource("1_4y11n")
