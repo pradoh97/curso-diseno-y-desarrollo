@@ -1,6 +1,6 @@
 [gd_scene load_steps=8 format=3 uid="uid://bjewvxqmiqnk6"]
 
-[ext_resource type="Script" uid="uid://diturtqxlo0x1" path="res://props/spike.gd" id="1_8evc3"]
+[ext_resource type="Script" uid="uid://diturtqxlo0x1" path="res://props/black_hole.gd" id="1_8evc3"]
 
 [sub_resource type="Animation" id="Animation_j7juu"]
 length = 0.001
