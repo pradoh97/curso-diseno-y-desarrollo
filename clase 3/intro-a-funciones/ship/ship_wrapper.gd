@@ -36,6 +36,8 @@ func activar_propulsor():
 			haciendo_movimiento = false
 			motor_encendido = false
 			propulsando = false
+			velocidad = 0
+			direccion = Vector2.ZERO
 			set_process(false)
 			motor_se_apago.emit()
 
