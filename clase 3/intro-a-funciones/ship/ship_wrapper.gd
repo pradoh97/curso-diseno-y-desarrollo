@@ -1,8 +1,9 @@
 extends CharacterBody2D
 class_name ShipWrapper
 
-var velocidad
+@export var draw_trail : bool = false
 
+var velocidad
 var arriba = Vector2(0, -1)
 var abajo = Vector2(0, 1)
 var derecha = Vector2(1, 0)
@@ -16,6 +17,11 @@ var propulsando = false
 signal motor_se_apago
 
 func _ready():
+	if not draw_trail:
+		$Trail.process_mode = Node.PROCESS_MODE_DISABLED
+		$Trail.visible = false
+	else:
+		$Trail.visible = true
 	set_process(false)
 	ruta_de_la_nave()
 
