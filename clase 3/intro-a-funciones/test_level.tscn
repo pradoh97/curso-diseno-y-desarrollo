@@ -8,4 +8,4 @@
 [node name="Ship" parent="." instance=ExtResource("2_f7g2b")]
 
 [node name="BlackHole" parent="." instance=ExtResource("2_1c2mv")]
-position = Vector2(0, -118)
+position = Vector2(493, -118)

@@ -11,6 +11,7 @@ var direccion = Vector2.ZERO
 var haciendo_movimiento = false
 var motor_encendido = false
 var destruida = false
+var propulsando = false
 
 signal motor_se_apago
 
@@ -26,15 +27,15 @@ func _process(_delta):
 
 func activar_propulsor():
 	if not haciendo_movimiento and motor_encendido:
-
-		velocity = velocidad*direccion.normalized()
 		haciendo_movimiento = true
+		velocity = velocidad*direccion.normalized()
 	if haciendo_movimiento:
 		velocity = velocity.lerp(Vector2.ZERO, 0.1)
 		if velocity.length() <= 1:
 			velocity = Vector2.ZERO
 			haciendo_movimiento = false
 			motor_encendido = false
+			propulsando = false
 			set_process(false)
 			motor_se_apago.emit()
 
@@ -43,10 +44,16 @@ func activar_propulsor():
 
 func encender_motor():
 	motor_encendido = true
+
 func configurar_direccion(nueva_direccion):
 	direccion = nueva_direccion
 
 func propulsar_nave():
+	if propulsando:
+		destruida = true
+		$AnimationPlayer.play("explode")
+		$AnimationPlayer.animation_finished.connect(func(_animation): get_tree().quit())
 	if not destruida:
+		propulsando = true
 		set_process(true)
 		await motor_se_apago
