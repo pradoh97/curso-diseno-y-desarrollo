@@ -1,0 +1,86 @@
+[gd_scene load_steps=6 format=3 uid="uid://cw72i7t7q65ga"]
+
+[ext_resource type="PackedScene" uid="uid://cuvhtlkm0hvy4" path="res://ship/ship.tscn" id="1_gte2g"]
+[ext_resource type="PackedScene" uid="uid://d28y6bo2qfcxi" path="res://props/goal.tscn" id="2_j7juu"]
+[ext_resource type="PackedScene" uid="uid://d22hvnj7yqkda" path="res://props/curvy-wall.tscn" id="3_gjsl1"]
+[ext_resource type="PackedScene" uid="uid://bt1ytkmpf7s82" path="res://props/wall.tscn" id="3_j7juu"]
+[ext_resource type="PackedScene" uid="uid://bjewvxqmiqnk6" path="res://props/black_hole.tscn" id="5_j7juu"]
+
+[node name="Maze" type="Node2D"]
+
+[node name="Hazards" type="Node2D" parent="."]
+
+[node name="blac_hole" parent="Hazards" instance=ExtResource("5_j7juu")]
+position = Vector2(-67, -71)
+
+[node name="blac_hole2" parent="Hazards" instance=ExtResource("5_j7juu")]
+position = Vector2(143, -408)
+
+[node name="blac_hole3" parent="Hazards" instance=ExtResource("5_j7juu")]
+position = Vector2(789, -276)
+
+[node name="blac_hole4" parent="Hazards" instance=ExtResource("5_j7juu")]
+position = Vector2(1041, 5)
+
+[node name="blac_hole5" parent="Hazards" instance=ExtResource("5_j7juu")]
+position = Vector2(1265, -146)
+
+[node name="Walls" type="Node2D" parent="."]
+
+[node name="Curvy" parent="Walls" instance=ExtResource("3_gjsl1")]
+
+[node name="Curvy2" parent="Walls" instance=ExtResource("3_gjsl1")]
+position = Vector2(525, 146)
+
+[node name="Wall" parent="Walls" instance=ExtResource("3_j7juu")]
+position = Vector2(-228, -55)
+
+[node name="Wall7" parent="Walls" instance=ExtResource("3_j7juu")]
+position = Vector2(229, -149)
+scale = Vector2(1, 1.64)
+
+[node name="Wall2" parent="Walls" instance=ExtResource("3_j7juu")]
+position = Vector2(-61, -201)
+rotation = 1.57079
+scale = Vector2(0.999979, 1.42025)
+
+[node name="Wall8" parent="Walls" instance=ExtResource("3_j7juu")]
+position = Vector2(1153, 68)
+rotation = 1.57079
+scale = Vector2(0.999979, 1.34025)
+
+[node name="Wall3" parent="Walls" instance=ExtResource("3_j7juu")]
+position = Vector2(105.535, -342)
+rotation = 3.14159
+scale = Vector2(0.999979, 0.980249)
+
+[node name="Wall9" parent="Walls" instance=ExtResource("3_j7juu")]
+position = Vector2(837, -384)
+rotation = 3.14159
+scale = Vector2(0.999979, 0.660248)
+
+[node name="Wall10" parent="Walls" instance=ExtResource("3_j7juu")]
+position = Vector2(386, -118)
+rotation = 2.09439
+scale = Vector2(1.07885, 0.695427)
+
+[node name="Wall4" parent="Walls" instance=ExtResource("3_j7juu")]
+position = Vector2(711, -452)
+rotation = 4.71238
+scale = Vector2(0.999979, 4.70025)
+
+[node name="Wall5" parent="Walls" instance=ExtResource("3_j7juu")]
+position = Vector2(1313, -192.93)
+rotation = 6.28318
+scale = Vector2(0.999979, 2.14025)
+
+[node name="Wall6" parent="Walls" instance=ExtResource("3_j7juu")]
+position = Vector2(369, 57)
+rotation = 7.85397
+scale = Vector2(0.999997, 4.56561)
+
+[node name="Goal" parent="." instance=ExtResource("2_j7juu")]
+position = Vector2(1232, 2)
+
+[node name="Ship" parent="." instance=ExtResource("1_gte2g")]
+position = Vector2(-163, -105)

@@ -1,0 +1,39 @@
+[gd_scene load_steps=2 format=3 uid="uid://d22hvnj7yqkda"]
+
+[ext_resource type="PackedScene" uid="uid://bt1ytkmpf7s82" path="res://props/wall.tscn" id="1_5apd8"]
+
+[node name="Curvy" type="Node2D"]
+
+[node name="Wall8" parent="." instance=ExtResource("1_5apd8")]
+position = Vector2(271, -235)
+rotation = 2.61799
+scale = Vector2(1.00957, 0.695427)
+
+[node name="Wall12" parent="." instance=ExtResource("1_5apd8")]
+position = Vector2(541, -80)
+rotation = 1.57079
+scale = Vector2(1.00957, 0.695427)
+
+[node name="Wall13" parent="." instance=ExtResource("1_5apd8")]
+position = Vector2(614, -152)
+scale = Vector2(1.00957, 0.695427)
+
+[node name="Wall14" parent="." instance=ExtResource("1_5apd8")]
+position = Vector2(594, -345)
+rotation = 2.09439
+scale = Vector2(1.00957, 0.695427)
+
+[node name="Wall15" parent="." instance=ExtResource("1_5apd8")]
+position = Vector2(458, -347)
+rotation = 1.0472
+scale = Vector2(1.00957, 0.695427)
+
+[node name="Wall9" parent="." instance=ExtResource("1_5apd8")]
+position = Vector2(357, -377)
+rotation = 2.61799
+scale = Vector2(1.00957, 0.695427)
+
+[node name="Wall11" parent="." instance=ExtResource("1_5apd8")]
+position = Vector2(386, -118)
+rotation = 2.09439
+scale = Vector2(1.00957, 0.695427)

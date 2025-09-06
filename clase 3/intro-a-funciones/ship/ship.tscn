@@ -3,10 +3,13 @@
 [ext_resource type="Script" uid="uid://cpsdb64inq87b" path="res://ship/ship.gd" id="1_l3rv8"]
 
 [node name="Ship" type="CharacterBody2D"]
+collision_mask = 14
 script = ExtResource("1_l3rv8")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+polygon = PackedVector2Array(-18, 24, 18, 24, 0, -24)
 
 [node name="Polygon2D" type="Polygon2D" parent="."]
 polygon = PackedVector2Array(-18, 24, 18, 24, 0, -24)
 
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
-polygon = PackedVector2Array(-18, 24, 18, 24, 0, -24)
+[node name="Camera2D" type="Camera2D" parent="."]

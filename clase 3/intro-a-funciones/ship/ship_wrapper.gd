@@ -10,6 +10,7 @@ var izquierda = Vector2(-1, 0)
 var direccion = Vector2.ZERO
 var haciendo_movimiento = false
 var motor_encendido = false
+var destruida = false
 
 signal motor_se_apago
 
@@ -25,7 +26,8 @@ func _process(_delta):
 
 func activar_propulsor():
 	if not haciendo_movimiento and motor_encendido:
-		velocity = velocidad*direccion
+
+		velocity = velocidad*direccion.normalized()
 		haciendo_movimiento = true
 	if haciendo_movimiento:
 		velocity = velocity.lerp(Vector2.ZERO, 0.1)
@@ -39,8 +41,12 @@ func activar_propulsor():
 	if not velocity.is_zero_approx():
 		move_and_slide()
 
-func propulsar_nave(nueva_direccion):
-	direccion = nueva_direccion
+func encender_motor():
 	motor_encendido = true
-	set_process(true)
-	await motor_se_apago
+func configurar_direccion(nueva_direccion):
+	direccion = nueva_direccion
+
+func propulsar_nave():
+	if not destruida:
+		set_process(true)
+		await motor_se_apago
