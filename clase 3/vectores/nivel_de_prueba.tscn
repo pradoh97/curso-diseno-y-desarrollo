@@ -1,0 +1,46 @@
+[gd_scene load_steps=5 format=3 uid="uid://cfa7omd4j4m8h"]
+
+[ext_resource type="Script" uid="uid://bs2vg0dssphra" path="res://nivel_de_prueba.gd" id="1_hlh48"]
+[ext_resource type="Script" uid="uid://xk0xnj7jyeoi" path="res://grid.gd" id="2_xe7la"]
+
+[sub_resource type="Gradient" id="Gradient_hlh48"]
+offsets = PackedFloat32Array(0)
+colors = PackedColorArray(0, 0, 0, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_xe7la"]
+gradient = SubResource("Gradient_hlh48")
+width = 7
+
+[node name="NivelDePrueba" type="Node2D"]
+script = ExtResource("1_hlh48")
+
+[node name="Grid" type="Node2D" parent="."]
+script = ExtResource("2_xe7la")
+
+[node name="Line2D" type="Line2D" parent="Grid"]
+visible = false
+points = PackedVector2Array(0, 300, 0, -300)
+width = 0.5
+
+[node name="Label" type="Label" parent="Grid"]
+offset_left = -68.0
+offset_top = -40.0
+offset_right = -22.0
+offset_bottom = -17.0
+theme_override_colors/font_color = Color(0.222223, 0.394892, 1, 1)
+text = "Area1"
+
+[node name="Label2" type="Label" parent="Grid"]
+offset_left = 26.0
+offset_top = 18.0
+offset_right = 72.0
+offset_bottom = 41.0
+theme_override_colors/font_color = Color(0.819608, 0.0196078, 0.0313726, 1)
+text = "Area2"
+
+[node name="Camera2D" type="Camera2D" parent="."]
+zoom = Vector2(8, 8)
+
+[node name="Square" type="Sprite2D" parent="."]
+scale = Vector2(1.1, 7.5)
+texture = SubResource("GradientTexture1D_xe7la")
