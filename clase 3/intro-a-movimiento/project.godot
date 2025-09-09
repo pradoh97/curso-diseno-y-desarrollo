@@ -10,7 +10,7 @@ config_version=5
 
 [application]
 
-config/name="Variables y condicionales"
+config/name="Intro a movimiento"
 run/main_scene="uid://dv8rvbbxfp0oj"
 config/features=PackedStringArray("4.4", "Forward Plus")
 config/icon="res://icon.svg"
