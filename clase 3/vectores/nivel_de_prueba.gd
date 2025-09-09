@@ -4,4 +4,4 @@ func _ready():
 	var square = $Square
 
 	#Modificar el código desde acá
-	square.position = Vector2(4, 4)
+	square.position = Vector2(0, 0)

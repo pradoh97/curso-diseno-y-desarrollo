@@ -9,7 +9,7 @@ colors = PackedColorArray(0, 0, 0, 1)
 
 [sub_resource type="GradientTexture1D" id="GradientTexture1D_xe7la"]
 gradient = SubResource("Gradient_hlh48")
-width = 7
+width = 8
 
 [node name="NivelDePrueba" type="Node2D"]
 script = ExtResource("1_hlh48")
@@ -42,5 +42,6 @@ text = "Area2"
 zoom = Vector2(8, 8)
 
 [node name="Square" type="Sprite2D" parent="."]
-scale = Vector2(1.1, 7.5)
+scale = Vector2(1, 8)
 texture = SubResource("GradientTexture1D_xe7la")
+centered = false
