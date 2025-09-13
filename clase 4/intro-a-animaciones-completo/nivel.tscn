@@ -1,4 +1,7 @@
-[gd_scene load_steps=4 format=3 uid="uid://k6hx6qv15w4a"]
+[gd_scene load_steps=6 format=3 uid="uid://k6hx6qv15w4a"]
+
+[ext_resource type="PackedScene" uid="uid://ctqtn1qihsi5b" path="res://Player/variation_1/player.tscn" id="1_h06de"]
+[ext_resource type="PackedScene" uid="uid://duu6fvj05ypu8" path="res://Player/variation_2/player.tscn" id="1_wrbek"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_3wcys"]
 size = Vector2(1154, 20)
@@ -25,3 +28,9 @@ texture = SubResource("GradientTexture1D_wrbek")
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2(0, 85)
 zoom = Vector2(1.5, 1.5)
+
+[node name="Player" parent="." instance=ExtResource("1_h06de")]
+position = Vector2(-75, 244)
+
+[node name="Player2" parent="." instance=ExtResource("1_wrbek")]
+position = Vector2(54, 267)
