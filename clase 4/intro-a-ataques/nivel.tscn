@@ -1,0 +1,38 @@
+[gd_scene load_steps=6 format=3 uid="uid://k6hx6qv15w4a"]
+
+[ext_resource type="PackedScene" uid="uid://duu6fvj05ypu8" path="res://player/player.tscn" id="1_wrbek"]
+[ext_resource type="PackedScene" uid="uid://dqybnkcwry850" path="res://dummy/dummy.tscn" id="2_h06de"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_3wcys"]
+size = Vector2(1154, 20)
+
+[sub_resource type="Gradient" id="Gradient_3wcys"]
+offsets = PackedFloat32Array(0)
+colors = PackedColorArray(0, 0, 0, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_wrbek"]
+gradient = SubResource("Gradient_3wcys")
+
+[node name="Nivel" type="Node2D"]
+
+[node name="Piso" type="StaticBody2D" parent="."]
+position = Vector2(0, 294)
+collision_layer = 4
+collision_mask = 6
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Piso"]
+shape = SubResource("RectangleShape2D_3wcys")
+
+[node name="Sprite2D" type="Sprite2D" parent="Piso"]
+scale = Vector2(4.50781, 22)
+texture = SubResource("GradientTexture1D_wrbek")
+
+[node name="Player" parent="." instance=ExtResource("1_wrbek")]
+position = Vector2(54, 267)
+
+[node name="Dummy" parent="." instance=ExtResource("2_h06de")]
+position = Vector2(-266, 274)
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(0, 85)
+zoom = Vector2(1.5, 1.5)
