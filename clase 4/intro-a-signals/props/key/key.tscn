@@ -1,0 +1,97 @@
+[gd_scene load_steps=10 format=3 uid="uid://bvcc203vvmave"]
+
+[ext_resource type="Texture2D" uid="uid://bhdqv7vre5u80" path="res://assets/KeyFly/KeyFly1.png" id="1_3m3ca"]
+[ext_resource type="Texture2D" uid="uid://bap3cu1dr2a48" path="res://assets/KeyFly/KeyFly2.png" id="2_sgihu"]
+[ext_resource type="Texture2D" uid="uid://c2bvkod2phxjt" path="res://assets/KeyFly/KeyFly3.png" id="3_f1t0b"]
+[ext_resource type="Texture2D" uid="uid://brcq7i7jhv45q" path="res://assets/KeyFly/KeyFly4.png" id="4_fj3n8"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_px5nq"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_3m3ca")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_sgihu")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_f1t0b")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_fj3n8")
+}],
+"loop": true,
+"name": &"fly",
+"speed": 10.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_6ggdv"]
+size = Vector2(38, 42)
+
+[sub_resource type="Animation" id="Animation_55vg7"]
+resource_name = "disappear"
+step = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AnimatedSprite2D:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+tracks/1/type = "method"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("AnimatedSprite2D")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"pause"
+}]
+}
+
+[sub_resource type="Animation" id="Animation_w6y7q"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AnimatedSprite2D:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_62sp3"]
+_data = {
+&"RESET": SubResource("Animation_w6y7q"),
+&"disappear": SubResource("Animation_55vg7")
+}
+
+[node name="Key" type="Area2D"]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_px5nq")
+animation = &"fly"
+autoplay = "fly"
+frame_progress = 0.440137
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, 2)
+shape = SubResource("RectangleShape2D_6ggdv")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_62sp3")
+}

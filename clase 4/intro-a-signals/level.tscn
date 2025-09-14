@@ -1,0 +1,54 @@
+[gd_scene load_steps=7 format=3 uid="uid://d3kmoo82l5i78"]
+
+[ext_resource type="PackedScene" uid="uid://bvcc203vvmave" path="res://props/key/key.tscn" id="1_vonw3"]
+[ext_resource type="PackedScene" uid="uid://b2ci8j7sru7vd" path="res://props/door/door.tscn" id="2_oi3di"]
+[ext_resource type="PackedScene" uid="uid://cty66x4u2mo5p" path="res://player/player.tscn" id="4_0b4ue"]
+[ext_resource type="PackedScene" uid="uid://dwf0633eu0dof" path="res://environment/wall.tscn" id="5_f2txt"]
+
+[sub_resource type="Gradient" id="Gradient_0b4ue"]
+offsets = PackedFloat32Array(0)
+colors = PackedColorArray(0, 0, 0, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_f2txt"]
+gradient = SubResource("Gradient_0b4ue")
+
+[node name="Level" type="Node2D"]
+
+[node name="Background" type="Sprite2D" parent="."]
+scale = Vector2(4.60156, 676)
+texture = SubResource("GradientTexture1D_f2txt")
+
+[node name="Walls" type="Node2D" parent="."]
+
+[node name="Wall" parent="Walls" instance=ExtResource("5_f2txt")]
+position = Vector2(-342, 23)
+
+[node name="Wall3" parent="Walls" instance=ExtResource("5_f2txt")]
+position = Vector2(-172, -147)
+rotation = 1.57079
+
+[node name="Wall4" parent="Walls" instance=ExtResource("5_f2txt")]
+position = Vector2(251, -147)
+rotation = 1.57079
+
+[node name="Wall5" parent="Walls" instance=ExtResource("5_f2txt")]
+position = Vector2(-146, 192)
+rotation = 1.57079
+
+[node name="Wall6" parent="Walls" instance=ExtResource("5_f2txt")]
+position = Vector2(222, 192)
+rotation = 1.57079
+
+[node name="Wall2" parent="Walls" instance=ExtResource("5_f2txt")]
+position = Vector2(422, 23)
+
+[node name="Key" parent="." instance=ExtResource("1_vonw3")]
+position = Vector2(158, -7)
+
+[node name="Door" parent="." instance=ExtResource("2_oi3di")]
+position = Vector2(41, -155)
+
+[node name="Player" parent="." instance=ExtResource("4_0b4ue")]
+position = Vector2(-85, 16)
+
+[node name="Camera2D" type="Camera2D" parent="."]
