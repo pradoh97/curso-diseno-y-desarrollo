@@ -1,0 +1,61 @@
+[gd_scene load_steps=8 format=3 uid="uid://wlwhcs484vw7"]
+
+[ext_resource type="PackedScene" uid="uid://c71kwf470188t" path="res://terrain.tscn" id="2_oi3di"]
+[ext_resource type="PackedScene" uid="uid://c4bg7jii5j0tb" path="res://player.tscn" id="2_vonw3"]
+[ext_resource type="PackedScene" uid="uid://c8v8qnsgncmnr" path="res://torch.tscn" id="3_oi3di"]
+
+[sub_resource type="Gradient" id="Gradient_oi3di"]
+colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 0)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_0b4ue"]
+gradient = SubResource("Gradient_oi3di")
+fill = 1
+fill_from = Vector2(0.5, 0.5)
+fill_to = Vector2(0.3, 0.05)
+
+[sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_oi3di"]
+polygon = PackedVector2Array(-60, -44, -59, 58, -38, 58, -37, -21, 101, -20, 101, -42)
+
+[sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_0b4ue"]
+polygon = PackedVector2Array(-123, 114, -135, 57, -397, 57, -395, 171, 124, 170, 126, -43, 100, -44, 102, 115)
+
+[node name="Level" type="Node2D"]
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(-17, 40)
+zoom = Vector2(2, 2)
+
+[node name="Torches" type="Node2D" parent="."]
+
+[node name="Torch" parent="Torches" instance=ExtResource("3_oi3di")]
+position = Vector2(80, 94)
+
+[node name="Torch2" parent="Torches" instance=ExtResource("3_oi3di")]
+position = Vector2(-11, 94)
+
+[node name="Torch3" parent="Torches" instance=ExtResource("3_oi3di")]
+position = Vector2(35, 36)
+
+[node name="Player" parent="." instance=ExtResource("2_vonw3")]
+position = Vector2(-70, 95)
+
+[node name="Terrain" parent="." instance=ExtResource("2_oi3di")]
+
+[node name="Sol" type="PointLight2D" parent="."]
+position = Vector2(-304, -1)
+shadow_enabled = true
+texture = SubResource("GradientTexture2D_0b4ue")
+texture_scale = 14.0
+
+[node name="Oclusores" type="Node2D" parent="."]
+
+[node name="LightOccluder2D" type="LightOccluder2D" parent="Oclusores"]
+occluder = SubResource("OccluderPolygon2D_oi3di")
+
+[node name="LightOccluder2D2" type="LightOccluder2D" parent="Oclusores"]
+occluder = SubResource("OccluderPolygon2D_0b4ue")
+
+[node name="DirectionalLight2D" type="DirectionalLight2D" parent="."]
+position = Vector2(-32, 13)
+energy = 0.6
+blend_mode = 1
