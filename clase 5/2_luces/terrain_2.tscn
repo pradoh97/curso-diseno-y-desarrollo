@@ -2262,13 +2262,8 @@ sources/0 = SubResource("TileSetAtlasSource_2orkt")
 modulate = Color(0.288518, 0.28851798, 0.28851798, 1)
 light_mask = 2
 z_index = -1
-<<<<<<< HEAD
 position = Vector2(85.8125, 80.491936)
 scale = Vector2(0.32333946, 0.32333946)
-=======
-position = Vector2(76, 68)
-scale = Vector2(0.39575648, 0.39575648)
->>>>>>> branch 'clase-5' of git@github.com:pradoh97/curso-diseno-y-desarrollo.git
 texture = ExtResource("1_68wo3")
 
 [node name="Background" type="Sprite2D" parent="."]
