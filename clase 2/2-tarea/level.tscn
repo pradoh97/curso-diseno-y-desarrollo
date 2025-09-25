@@ -1,12 +1,10 @@
-[gd_scene load_steps=5 format=3 uid="uid://bq1teupgmew1l"]
+[gd_scene load_steps=4 format=3 uid="uid://bq1teupgmew1l"]
 
-[ext_resource type="Script" uid="uid://cg74h8gvx8cmf" path="res://level.gd" id="1_0b4ue"]
 [ext_resource type="PackedScene" uid="uid://bw68wsps3t1ph" path="res://player/player.tscn" id="1_u52ul"]
 [ext_resource type="PackedScene" uid="uid://cf14nekiyv4e5" path="res://floor/floor.tscn" id="2_vonw3"]
-[ext_resource type="Texture2D" uid="uid://27j8iftxvygx" path="res://sky.jpg" id="3_oi3di"]
+[ext_resource type="Texture2D" uid="uid://27j8iftxvygx" path="res://assets/sky.jpg" id="3_oi3di"]
 
 [node name="Level" type="Node2D"]
-script = ExtResource("1_0b4ue")
 
 [node name="Sky" type="Sprite2D" parent="."]
 position = Vector2(2, -622)
@@ -47,8 +45,6 @@ metadata/_edit_lock_ = true
 position = Vector2(823, -617)
 rotation = 1.57079
 metadata/_edit_lock_ = true
-
-[node name="Mushrooms" type="Node2D" parent="."]
 
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2(147, -561)

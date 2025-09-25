@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://l0fvf6nghmf2"
-path="res://.godot/imported/MagicMushroom.png-8c47a5f90035ce7eeaa8db6225d41568.ctex"
+path="res://.godot/imported/MagicMushroom.png-bf7cf1c542ed1c3dad212f7030318b26.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/mushroom/MagicMushroom.png"
-dest_files=["res://.godot/imported/MagicMushroom.png-8c47a5f90035ce7eeaa8db6225d41568.ctex"]
+source_file="res://assets/MagicMushroom.png"
+dest_files=["res://.godot/imported/MagicMushroom.png-bf7cf1c542ed1c3dad212f7030318b26.ctex"]
 
 [params]
 
