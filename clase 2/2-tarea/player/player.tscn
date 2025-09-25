@@ -1,0 +1,40 @@
+[gd_scene load_steps=7 format=3 uid="uid://bw68wsps3t1ph"]
+
+[ext_resource type="Script" uid="uid://ck6papn6xw7m1" path="res://player/player.gd" id="1_xhfnw"]
+[ext_resource type="Texture2D" uid="uid://b70xtal6nhg45" path="res://assets/mario/Mario-walk-1.png" id="2_yw30f"]
+[ext_resource type="Texture2D" uid="uid://cj2ro1bssaqab" path="res://assets/mario/Mario-walk-2.png" id="3_qjkh3"]
+[ext_resource type="Texture2D" uid="uid://c0gl08h3munct" path="res://assets/mario/Mario-walk-3.png" id="4_g6k8r"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_4ntmi"]
+size = Vector2(10, 14)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_oul6g"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("4_g6k8r")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_yw30f")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_qjkh3")
+}],
+"loop": true,
+"name": &"default",
+"speed": 13.0
+}]
+
+[node name="Player" type="CharacterBody2D"]
+scale = Vector2(6, 6)
+collision_mask = 5
+script = ExtResource("1_xhfnw")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, 0.6666667)
+shape = SubResource("RectangleShape2D_4ntmi")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+z_index = 9
+sprite_frames = SubResource("SpriteFrames_oul6g")
+autoplay = "default"

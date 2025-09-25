@@ -1,0 +1,9 @@
+[gd_scene load_steps=2 format=3 uid="uid://dl65mlyfugbkx"]
+
+[ext_resource type="Script" uid="uid://b20gyu31c3y5w" path="res://mushroom/mushroom.gd" id="1_gr7au"]
+
+[node name="Mushroom" type="Area2D"]
+scale = Vector2(6, 6)
+script = ExtResource("1_gr7au")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
