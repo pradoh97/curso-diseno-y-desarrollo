@@ -1,0 +1,50 @@
+[gd_scene load_steps=7 format=3 uid="uid://yfp2cplancv8"]
+
+[ext_resource type="Script" uid="uid://bmjt73dkoxlt4" path="res://health_bar/health_bar.gd" id="1_8aqs0"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_8aqs0"]
+
+[sub_resource type="Gradient" id="Gradient_7igj3"]
+offsets = PackedFloat32Array(0)
+colors = PackedColorArray(1, 1, 1, 0.313726)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_m7ell"]
+gradient = SubResource("Gradient_7igj3")
+
+[sub_resource type="Gradient" id="Gradient_m7ell"]
+offsets = PackedFloat32Array(1)
+colors = PackedColorArray(0.375066, 0.583803, 0.262589, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_kdjhy"]
+gradient = SubResource("Gradient_m7ell")
+width = 1
+
+[node name="HealthBar" type="PanelContainer"]
+layout_direction = 2
+anchors_preset = -1
+anchor_left = 0.021
+anchor_top = 0.037
+anchor_right = 0.021
+anchor_bottom = 0.037
+offset_left = -0.192001
+offset_top = 0.0240002
+offset_right = 255.808
+offset_bottom = 40.024
+theme_override_styles/panel = SubResource("StyleBoxEmpty_8aqs0")
+script = ExtResource("1_8aqs0")
+metadata/_edit_use_anchors_ = true
+
+[node name="Background" type="TextureRect" parent="."]
+layout_mode = 2
+texture = SubResource("GradientTexture1D_m7ell")
+expand_mode = 2
+
+[node name="CurrentHealth" type="Sprite2D" parent="."]
+scale = Vector2(1, 39.5)
+texture = SubResource("GradientTexture1D_kdjhy")
+centered = false
+
+[node name="Line2D" type="Line2D" parent="."]
+points = PackedVector2Array(0, 0, 256, 0, 256, 40, 0, 40)
+closed = true
+width = 4.0
